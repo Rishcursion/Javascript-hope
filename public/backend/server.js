@@ -9,6 +9,8 @@ const bodyparser = require('body-parser');
 //Helps with mysql connectivity
 const knex = require('knex');
 
+//setting up db connection
+
 
 //starting server with express
 const app = express();
@@ -23,5 +25,5 @@ app.get('/',(req,res) =>{
 })
 app.get('')
 app.listen(3000,(req,res) =>{
-
+``
 });
