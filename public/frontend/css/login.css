@@ -18,6 +18,26 @@ body{
     background-position: center;
 }
 
+.Webname h1{
+    margin: 0;
+    padding : 0px;
+    text-align: center;
+    justify-content: left;
+    position: absolute;
+    top: 10%;
+    color:bisque;
+}
+
+.Webname1 h1{
+    margin: 0;
+    padding : 0px;
+    text-align: center;
+    justify-content: left;
+    position: absolute;
+    top: 5%;
+    color:bisque;
+}
+
 .wrapper{
     width: 420px;
     background: transparent;
