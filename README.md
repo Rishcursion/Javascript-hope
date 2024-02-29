@@ -15,4 +15,4 @@ Registeration Screen:
 ![Registeration Screen](https://github.com/Rishcursion/Javascript-hope/blob/main/public/images/Screenshot%202024-02-21%20at%2001-03-32%20Your%20Workout%20Companion.png)
 
 ER Schema:  
-![Trial Er Schema](https://github.com/Rishcursion/Javascript-hope/blob/main/public/images/Untitled%20Diagram(1).drawio.svg)
+![Trial Er Schema](https://github.com/Rishcursion/Javascript-hope/blob/main/public/images/istg.drawio.png)
