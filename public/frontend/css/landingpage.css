@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair",regular-400; 
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+  }
+
+title-bar{
+    position: absolute;
+    top:10%;
+    background-color: gray;
+}
+
+title-bar .h1{
+    position: relative;
+    top: 10%;
+    padding: 5px;
+    justify-content: left;
+}
+
+title-bar .h2{
+    position: relative;
+    top:10%;
+    left: 10%;
+    padding: 10px;
+    justify-content: center;
+}
