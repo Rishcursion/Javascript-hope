@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Your Workout Companion</title>
+  <link rel="stylesheet" type ="text/css" href="/css/login.css" />
+  <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <div class="Webname">
+    <h1>
+      Placeholder Title1<br />
+      Your Workout Companion
+    </h1>
+  </div>
+  <div class="wrapper">
+    <form id="Login-Page" action="">
+      <h1>Login</h1>
+      <div class="login-error-wrapper">
+        <p id = "login-error-msg">Invalid Credentials</p>
+      </div>
+      <div class="input-box">
+        <input type="text" name="Username" id='Login-user' placeholder="Enter Your Username" required />
+        <i class="bx bx-user-circle"></i>
+      </div>
+      <div class="input-box">
+        <input type="password" name='pass' id="'Login-pass" placeholder="Enter password" required />
+        <i class="bx bxs-id-card"></i>
+      </div>
+      <div class="remember-forgot">
+        <label><input type="checkbox" id="remember-me"/> Remember Me </label>
+        <a href="#">Forgot Your Password?</a>
+      </div>
+      <button type="submit" id="submit" class="btn">
+        Login <i class="bx bxs-log-in"></i>
+      </button>
+
+      <div class="Register">
+        <p>
+          Want To Change Your Life?
+          <a href="/login/register"><br />Change Myself</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</body>

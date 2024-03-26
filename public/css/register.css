@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Playfair", regular-400;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: url("/images/back.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.Webname h1 {
+  margin: 0;
+  padding: 0px;
+  text-align: center;
+  justify-content: left;
+  position: absolute;
+  top: 10%;
+  color: bisque;
+}
+
+.Webname1 h1 {
+  margin: 0;
+  padding: 0px;
+  text-align: center;
+  justify-content: left;
+  position: absolute;
+  top: 5%;
+  color: bisque;
+}
+
+.wrapper {
+  width: 420px;
+  background: transparent;
+  color: rgb(228, 197, 157);
+  border: 2px solid gray;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 30px 40px;
+}
+
+.wrapper h1 {
+  font-size: 36px;
+  text-align: center;
+  font-style: normal;
+}
+
+
+.wrapper .input-box {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 30px 0;
+  padding: 5px;
+}
+
+.input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid gray;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 20px 25px 20px 20px;
+}
+
+.input-box input::placeholder {
+  color: white;
+}
+
+.input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+}
+.wrapper .remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+  accent-color: #fff;
+  margin-right: 3px;
+}
+
+.remember-forgot a {
+  color: white;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover {
+  text-decoration: underline;
+}
+
+.wrapper .btn {
+  width: 100%;
+  height: 45px;
+  background: white;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+}
+.wrapper .btn:hover {
+  color: cadetblue;
+}
+
+.wrapper .Register {
+  font-size: 14.5px;
+  text-align: center;
+  margin-top: 10px;
+  position:relative;
+}
+
+.Register p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+}
+.Register p a:hover {
+  text-decoration: underline;
+}
+
+.wrapper .return {
+  font-size: 14.5px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.return p a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+}
+.return p a:hover {
+  text-decoration: underline;
+}
