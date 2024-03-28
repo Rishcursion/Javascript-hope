@@ -9,4 +9,68 @@
 body {
     display: flex;
     min-height: 100vh;
+    background: url("/public/images/landing.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    align-items:center;
+    justify-content: center;
   }
+
+.main_wrapper .name{
+    position: absolute;
+    top:10%;
+    left:35%;
+    text-align: center;
+    font-size: 30px;
+    font-weight:400;
+    text-decoration: none;
+    padding-top: 10px;
+    color: darkblue;
+}
+.main_wrapper .name:hover{
+    color: beige;
+    transition: all .4s ease;
+}
+
+.main_wrapper .welcome{
+    text-align: left;
+    position: relative;
+    background: transparent;
+    color:cornflowerblue;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    font-weight: bold;
+    padding-bottom: 10px;
+    display: grid;
+    margin: 0;
+    border: 2px;
+    border-color: aliceblue;
+}
+.main_wrapper .welcome h1{
+    left:10%;
+    position: relative;
+    font-size: 40px;
+    font-weight: 500;
+    color:lightsalmon;
+    padding-bottom: 20px;
+    margin: 2px;
+}
+.main_wrapper .welcome .greeter{
+    position: relative;
+    padding-left: 20px;
+    left:15%;
+    display: inline-block;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 500;
+    color:chocolate;
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+
+
+.main_wrapper .welcome .name2{
+    position: relative;
+    text-decoration: none;
+    text-align: justify;
+}

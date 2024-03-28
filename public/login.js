@@ -19,24 +19,7 @@ const pool = mariadb.createPool({
   database: process.env.DATABASE,
   connectionLimit: 2,
 });
-async function asyncFunction() {
-  let conn;
-  try {
-    conn = await pool.getConnection();
 
-    const res = await conn.query("INSERT INTO workout_types values (?,?,?,?)", [
-      1,
-      "Running",
-      "Cardio",
-      700,
-    ]);
-    // res: { affectedRows: 1, insertId: 1, warningStatus: 0 }
-  } finally {
-    if (conn) conn.release(); //release to pool
-  }
-}
-asyncFunction();
-//setting up variables
 const app = express();
 const port = 3000;
 
