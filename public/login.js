@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const http = require("http");
 const bodyParser = require("body-parser");
 const validator = require("express-validator");
-//const session = require("express-session");
+const session = require("express-session");
 
 //setting up connection to mariadb using env variable
 dotenv.config();
@@ -20,15 +20,19 @@ const pool = mariadb.createPool({
   connectionLimit: 2,
 });
 
+//initializing express.js and port for live server
 const app = express();
 const port = 3000;
-
-//Setting Up An Object for storing user details
 
 //setting up express.js
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+app.use(session({
+	secret: process.env.SECRET_KEY,
+	resave: true,
+	saveUninitialized: true
+}));
 
 //setting up GET requests
 app.get("/", (req, res) => {
@@ -41,19 +45,61 @@ app.get("/login", (req, res) => {
 app.get("/login/register", (req, res) => {
   res.sendFile(path.join(__dirname, "/static/register.html"));
 });
+app.get("/login/homepage",(req,res)=>{
+  res.sendFile(path.join(__dirname,'/static/homepage.html'));
+})
 
 //setting up POST requests
-
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
   let username = req.body.Username;
   let password = req.body.pass;
+
+  try {
+    const conn = await pool.getConnection();
+    const result = await conn.query("SELECT * FROM User WHERE username = ?", [username]);
+    conn.release();
+
+    if (result.length > 0) {
+      const user = result[0];
+      const match = await bcrypt.compare(password, user.password);
+
+      if (match) {
+        req.session.loggedIn = true;
+        req.session.username = username;
+        res.redirect("/login/homepage");
+      } else {
+        res.status(401).send("Incorrect password");
+      }
+    } else {
+      res.status(404).send("User not found");
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
 });
 
-app.post("/login/register", (req, res) => {
-  let use = req.body.user;
+app.post("/login/register", async (req, res) => {
+  let username = req.body.user;
   let email = req.body.email;
-  let pass = req.body.pass;
-  let repass = req.body.repass;
+  let password = req.body.pass;
+  let confirmPassword = req.body.repass;
+
+  if (password !== confirmPassword) {
+    return res.status(400).send("Passwords do not match");
+  }
+
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const conn = await pool.getConnection();
+    await conn.query("INSERT INTO User (username, email, password) VALUES (?, ?, ?)", [username, email, hashedPassword]);
+    conn.release();
+    res.redirect("/login");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
 });
+
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));
