@@ -28,11 +28,13 @@ const port = 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-app.use(session({
-	secret: process.env.SECRET_KEY,
-	resave: true,
-	saveUninitialized: true
-}));
+app.use(
+  session({
+    secret: process.env.SECRET_KEY,
+    resave: true,
+    saveUninitialized: true,
+  })
+);
 
 //setting up GET requests
 app.get("/", (req, res) => {
@@ -45,9 +47,12 @@ app.get("/login", (req, res) => {
 app.get("/login/register", (req, res) => {
   res.sendFile(path.join(__dirname, "/static/register.html"));
 });
-app.get("/login/homepage",(req,res)=>{
-  res.sendFile(path.join(__dirname,'/static/homepage.html'));
-})
+app.get("/login/homepage", (req, res) => {
+  res.sendFile(path.join(__dirname, "/static/homepage.html"));
+});
+app.get("/userdetails", (req, res) => {
+  res.sendFile(path.join(__dirname, "/static/userdetails.html"));
+});
 
 //setting up POST requests
 app.post("/login", async (req, res) => {
@@ -56,7 +61,9 @@ app.post("/login", async (req, res) => {
 
   try {
     const conn = await pool.getConnection();
-    const result = await conn.query("SELECT * FROM User WHERE username = ?", [username]);
+    const result = await conn.query("SELECT * FROM User WHERE username = ?", [
+      username,
+    ]);
     conn.release();
 
     if (result.length > 0) {
@@ -92,14 +99,62 @@ app.post("/login/register", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
     const conn = await pool.getConnection();
-    await conn.query("INSERT INTO User (username, email, password) VALUES (?, ?, ?)", [username, email, hashedPassword]);
+    await conn.query(
+      "INSERT INTO User (username, email, password) VALUES (?, ?, ?)",
+      [username, email, hashedPassword]
+    );
     conn.release();
-    res.redirect("/login");
+    res.redirect("/userdetails");
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");
   }
 });
 
+app.post("/userdetails", async (req, res) => {
+  let username = req.body.Username;
+  let user_name = req.body.name;
+  let user_age = req.body.age;
+  let user_gender = req.body.gender;
+  let user_height = req.body.height;
+  let user_weight = req.body.weight;
+  let user_waist_size = req.body.waist_size;
+  let user_neck_size = req.body.neck_size;
+  try {
+    const conn = await pool.getConnection();
+    const userQuery = "SELECT uuid FROM User WHERE username = ?";
+    const userResult = await conn.query(userQuery, [username]);
+    conn.release();
+    if (userResult.length > 0) {
+      const user_id = userResult[0].uuid;
 
+      try {
+        const conn2 = await pool.getConnection();
+        const insertQuery =
+          "INSERT INTO user_data  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        await conn2.query(insertQuery, [
+          user_id,
+          user_name,
+          user_gender,
+          user_age,
+          user_weight,
+          user_height,
+          user_neck_size,
+          user_waist_size,
+        ]);
+        conn2.release();
+
+        res.redirect("/login/homepage");
+      } catch (err) {
+        console.error(err);
+        res.status(404).send("Forbidden");
+      }
+    } else {
+      res.status(404).send("User not found");
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
 app.listen(port, () => console.log(`Listening on port: ${port}`));
