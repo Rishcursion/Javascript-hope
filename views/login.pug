@@ -1,0 +1,35 @@
+doctype html
+head
+  title Your Workout Companion
+  link(rel='stylesheet' href=' /css/login.css')
+  link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+.Webname
+  h1
+    | Placeholder Title1
+    br
+    |       Your Workout Companion
+.wrapper
+  form#Login-Page(action='/login' method='post')
+    h1 Login
+    .login-error-wrapper
+      p#login-error-msg Invalid Credentials
+    .input-box
+      input#Login-user(type='text' name='Username' placeholder='Enter Your Username' required='')
+      i.bx.bx-user-circle
+    .input-box
+      input(type='password' name='pass' id="'Login-pass" placeholder='Enter password' required='')
+      i.bx.bxs-id-card
+    .remember-forgot
+      label
+        input#remember-me(type='checkbox')
+        |  Remember Me
+      a(href='#') Forgot Your Password?
+    button#submit.btn(type='submit')
+      | Login 
+      i.bx.bxs-log-in
+    .Register
+      p
+        | Want To Change Your Life?
+        a(href='/login/register')
+          br
+          | Change Myself

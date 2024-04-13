@@ -1,0 +1,37 @@
+doctype html
+head
+  title Your Workout Companion
+  link(rel='stylesheet' type='text/css' href='/public/css/details.css')
+  link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+.Webname
+  h1
+    | Your Workout Companion
+.wrapper
+  form#User-Details(action='/userdetails' method='post')
+    h1 User Details
+    .input-box
+      input#Login-user(type='text' name='Username' placeholder='Enter Your Username' required='')
+      i.bx.bx-user-circle
+    .input-box
+      input#details-name(type='text' name='name' placeholder='Enter Your Legal Name' required='')
+    .input-box
+      input(type='number' name='age' id="'details-age" placeholder='Enter Your Age' min='18' required='')
+      i.bx.bxs-id-card
+    .input-box
+      input(type='text' name='gender' id="'details-gender" placeholder='Enter Your Gender(M,F)' required='')
+      i.bx.bxs-id-card
+    .input-box
+      input(type='number' name='height' id="'details-height" placeholder='Enter Your Height' min='0' required='')
+      i.bx.bxs-id-card
+    .input-box
+      input(type='number' name='weight' id="'details-weight" placeholder='Enter Your Weight' min='20' required='')
+      i.bx.bxs-id-card
+    .input-box
+      input(type='number' name='waist_size' min='5' id="'details-waist-size" placeholder='Enter Your Waist Size in cm' required='')
+      i.bx.bxs-id-card
+    .input-box
+      input(type='number' name='neck_size' min='5' id="'details-neck-size" placeholder='Enter Your neck circumference' required='')
+      i.bx.bxs-id-card
+    button#submit.btn(type='submit')
+      | Submit User Details 
+      i.bx.bxs-log-in

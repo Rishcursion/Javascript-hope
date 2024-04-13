@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair", regular-400;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: url("/public/images/newbg2.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+.name {
+  text-decoration: none;
+  color: blanchedalmond;
+  font-size: 40px;
+  position: fixed;
+  top: 2%;
+  right: 35%;
+}
+
+.name:hover {
+  color: aliceblue;
+  transition: 200ms linear 50ms;
+}
+
+.prog {
+  position: absolute;
+  padding: 5px;
+  top: 30%;
+  color: ghostwhite;
+}
+
+.journ {
+  position: absolute;
+  padding: 5px;
+  top: 55%;
+  color: ghostwhite;
+}

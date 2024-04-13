@@ -1,0 +1,24 @@
+doctype html
+head
+  title Your Workout Companion
+  link(rel='stylesheet' href='/public/css/homepage.css')
+  link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+header.header1
+  a.name(href='/public/static/homepage.html') Your Workout Companion
+h1.prog Your Progress
+h1.journ Workout Journal
+table
+    thead
+        tr 
+        th Exercise Name 
+        th Duration 
+        th Repititions
+        th Sets 
+    tbody 
+    for each row in data
+    tr 
+        td = row.excercise_name
+        td = row.duration 
+        td = row.reps
+        td = row.sets 
+        
