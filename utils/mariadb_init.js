@@ -1,6 +1,7 @@
 const mariadb = require("mariadb");
 const dotenv = require("dotenv");
 
+dotenv.config();
 const ea = process.env;
 
 const pool = mariadb.createPool({
@@ -8,12 +9,12 @@ const pool = mariadb.createPool({
   port: ea.DATABASE_PORT,
   user: ea.DATABASE_ROOT,
   password: ea.DATABASE_PASSWORD,
-  database: ea.DATABASE,
+  database: ea.DATABASE_NAME,
   connectionLimit: 2,
 });
 
 module.exports = {
-  getConnection() {
+  async getConnection() {
     return new Promise(function (res, rej) {
       pool
         .getConnection()

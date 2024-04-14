@@ -1,13 +1,13 @@
 doctype html
 head
   title Your Workout Companion
-  link(rel='stylesheet' type='text/css' href='/public/css/details.css')
+  link(rel='stylesheet' type='text/css' href='/css/details.css')
   link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
 .Webname
   h1
     | Your Workout Companion
 .wrapper
-  form#User-Details(action='/userdetails' method='post')
+  form#User-Details(action='/register/userdeets' method='post')
     h1 User Details
     .input-box
       input#Login-user(type='text' name='Username' placeholder='Enter Your Username' required='')

@@ -9,11 +9,12 @@
 body {
   display: flex;
   min-height: 100vh;
-  background: url("/public/images/newbg2.jpg") no-repeat;
+  background: url("/images/back.jpg") no-repeat;
   background-size: cover;
   background-position: center;
   align-items: center;
   justify-content: center;
+  text-align: center;
   min-height: 100vh;
   height: 100%;
   width: 100%;
@@ -21,7 +22,7 @@ body {
 
 .name {
   text-decoration: none;
-  color: blanchedalmond;
+  color: black;
   font-size: 40px;
   position: fixed;
   top: 2%;
@@ -37,12 +38,45 @@ body {
   position: absolute;
   padding: 5px;
   top: 30%;
+  left: 15%;
   color: ghostwhite;
+}
+.progress {
+  position: absolute;
+  left: 10%;
+  top: 40%;
+  color: gold;
+  font-size: 25px;
+  padding: 5px;
+  border-spacing: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 5px;
+  border-color: aliceblue;
+}
+.userdat {
+  position: absolute;
+  right: 10%;
+  top: 40%;
+  color: gold;
+  font-size: 25px;
+  padding: 5px;
+  border-spacing: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 5px;
+  border-color: aliceblue;
+}
+.adddeets {
+  position: absolute;
+  right: 40%;
+  top: 37%;
 }
 
 .journ {
   position: absolute;
   padding: 5px;
-  top: 55%;
+  top: 30%;
+  right: 25%;
   color: ghostwhite;
 }

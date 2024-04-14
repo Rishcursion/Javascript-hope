@@ -3,9 +3,10 @@ const pool = require("../utils/mariadb_init");
 
 module.exports = {
   async register(username, email, pass, repass) {
+    console.log("reached model");
     if (pass == repass) {
       try {
-        conn = pool.getConnection();
+        conn = await pool.getConnection();
         sql1 = "select username from User where username = (?)";
         sql2 =
           "INSERT INTO User (uuid, username, email, password) VALUES (NULL, ?, ?, ?)";
@@ -15,9 +16,8 @@ module.exports = {
         } else {
           const hash_pass = await bcrypt.hash(pass, 10);
           await conn.query(sql2, [username, email, hash_pass]);
+          return true;
         }
-        conn.release();
-        return true;
       } catch (err) {
         throw err;
       } finally {
