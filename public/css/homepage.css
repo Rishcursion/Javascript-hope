@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair", regular-400;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: url("/images/back.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+}
+
+.name {
+  text-decoration: none;
+  color: black;
+  font-size: 40px;
+  position: fixed;
+  top: 2%;
+  right: 35%;
+}
+
+.name:hover {
+  color: aliceblue;
+  transition: 200ms linear 50ms;
+}
+
+.prog {
+  position: absolute;
+  padding: 5px;
+  top: 30%;
+  left: 15%;
+  color: ghostwhite;
+}
+.progress {
+  position: absolute;
+  left: 10%;
+  top: 40%;
+  color: gold;
+  font-size: 25px;
+  padding: 5px;
+  border-spacing: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 5px;
+  border-color: aliceblue;
+}
+.userdat {
+  position: absolute;
+  right: 10%;
+  top: 40%;
+  color: gold;
+  font-size: 25px;
+  padding: 5px;
+  border-spacing: 20px;
+  align-items: center;
+  justify-content: center;
+  border: 5px;
+  border-color: aliceblue;
+}
+.adddeets {
+  position: absolute;
+  right: 40%;
+  top: 37%;
+}
+
+.journ {
+  position: absolute;
+  padding: 5px;
+  top: 30%;
+  right: 25%;
+  color: ghostwhite;
+}

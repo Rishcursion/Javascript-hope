@@ -1,0 +1,28 @@
+doctype html
+head
+  title Your Workout Companion
+  link(rel='stylesheet' href='/css/register.css')
+  link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+.wrapper
+  form(action='/register' method='post')
+    h1 Register
+    .input-box
+      input(type='text' name='user' placeholder='Enter Your Username')
+      i.bx.bx-user-circle
+    .input-box
+      input(type='email' name='email' placeholder='Enter Your Email' required='')
+    .input-box
+      input(type='password' name='pass' placeholder='Enter password' required='')
+      i.bx.bxs-id-card
+    .input-box
+      input(type='password' name='repass' placeholder='Re-enter password' required='')
+      i.bx.bxs-id-card
+    button.btn(type='submit' name='submit')
+      | Register 
+      i.bx.bxs-log-in
+    .return
+      p
+        | Existing User?
+        a(href='/login')
+          br
+          | Welcome Back

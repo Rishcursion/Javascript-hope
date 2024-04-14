@@ -1,0 +1,45 @@
+doctype html
+head
+  title Your Workout Companion
+  link(rel='stylesheet' href='/css/homepage.css')
+  link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+header.header1
+  a.name(href='/login/homepage') Your Workout Companion
+
+h1.prog Your Progress
+table.progress
+    thead
+        tr 
+        th BMI
+        td= biodata.bmi
+    tbody 
+      tr 
+        th Body Fat%
+        td=  biodata.body_fat
+      tr 
+        td= "Height" 
+        td= data[0].height 
+      tr 
+        td= "Weight"
+        td= data[0].weight
+
+
+h1.journ Workout Journal
+button.adddeets#add(type="submit") Add New Entry
+table.userdat
+    thead
+        tr 
+        th Exercise Name 
+        th Exercise Type
+        th Duration 
+        th Repititions
+        th Sets 
+    tbody 
+    each row in data
+      tr 
+        td= row.excercise_name
+        td= row.workout_type
+        td= row.duration 
+        td= row.reps
+        td= row.sets 
+        

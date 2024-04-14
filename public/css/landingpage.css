@@ -9,9 +9,43 @@
 body {
   display: flex;
   min-height: 100vh;
-  background: url("/images/landing.jpg") no-repeat;
+  background: url("/images/back.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: left;
+  color: aliceblue;
+}
+.content {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+}
+.login1 {
+  position: absolute;
+  top: 52%;
+  left: 43%;
+  font-size: larger;
+}
+.lr1 {
+  position: absolute;
+  top: 5%;
+}
+.lr1 a {
+  color: azure;
+}
+.lr1 a:hover {
+  color: greenyellow;
+}
+
+.login1 a {
+  color: azure;
+}
+.login1 a:hover {
+  color: greenyellow;
+}
+.Contact {
+  position: absolute;
+  top: 87%;
+  left: 2%;
 }
