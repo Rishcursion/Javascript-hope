@@ -7,7 +7,7 @@ module.exports = {
       const conn = await pool.getConnection();
       const sqlobject = await conn.query(sqlquery, [uuid]);
       if (sqlobject.length == 0) {
-        console.log("Data Not Availabe");
+        return -1;
       } else {
         return sqlobject;
       }

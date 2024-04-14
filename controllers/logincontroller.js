@@ -49,16 +49,16 @@ async function getTableData(req, res) {
         data[0].waist_size - data[0].neck_circumference
       );
       const heightLog = Math.log10(data[0].height);
-      const bmi = Math.fround(
-        (data[0].weight / Math.pow(data[0].height, 2)) * 10000
-      );
-      const body_fat = Math.fround(
+      const bmi = (
+        (data[0].weight / Math.pow(data[0].height, 2)) *
+        10000
+      ).toFixed(2);
+      const body_fat = (
         (495 / (1.0324 - 0.19077 * waist_neck_log + 0, 0.15456 * heightLog) -
           450) /
-          100
-      );
+        100
+      ).toFixed(2);
       const biodata = { bmi, body_fat };
-      console.log(biodata);
       res.render("homepage", { data, biodata });
     } else {
       res.status(404).json({ message: "Data not found" });

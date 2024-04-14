@@ -1,6 +1,5 @@
 const models = require("../model/registration");
 const models2 = require("../model/newdeets");
-const models3 = require("../model/deets");
 const registeration = (req, res) => {
   res.render("register", {});
 };
@@ -60,6 +59,7 @@ async function getdeets(req, res) {
       user_waist_size,
       user_neck_size
     );
+    res.redirect("/register/userdeets/homepage");
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Internal Server Error" });
