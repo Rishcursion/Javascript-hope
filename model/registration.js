@@ -27,4 +27,16 @@ module.exports = {
       return false;
     }
   },
+  async journal_entry(uuid, workout_id, duration, sets, reps) {
+    try {
+      const conn2 = await pool.getConnection();
+      const query2 = "Insert into Journal values(?,?,?,?,?)";
+      await conn2.query(query2, [uuid, workout_id, duration, sets, reps]);
+      conn2.release();
+    } catch (err) {
+      throw err;
+    } finally {
+      console.log("Added Entry Succesfully");
+    }
+  },
 };

@@ -1,0 +1,27 @@
+doctype html 
+doctype html
+head
+  title Your Workout Companion
+  link(rel='stylesheet' href='/css/register.css')
+  link(href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet')
+.wrapper
+  form(action='/register/userdeets/journal' method='post')
+    h1 Add Entry
+    .input-box
+      input(type='text' name='wid' placeholder='Enter Excercise Done')
+      i.bx.bx-user-circle
+    .input-box
+      input(type='number' name='duration' placeholder='Enter Workout Duration' required='' max=99)
+    .input-box
+      input(type='number' name='reps' placeholder='Enter No. Of Reps' required='')
+      i.bx.bxs-id-card
+    .input-box
+      input(type='number' name='sets' placeholder='Enter No Of Sets' required='')
+      i.bx.bxs-id-card
+    button.btn(type='submit' name='submit')
+      | Add Entry 
+      i.bx.bxs-log-in
+  form(action='/login/homepage' method='get')
+    button.btn(type='submit' class='home')
+      | Go Back
+    .return

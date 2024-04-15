@@ -7,7 +7,10 @@ module.exports = {
       const conn = await pool.getConnection();
       const sqlobject = await conn.query(sqlquery, [uuid]);
       if (sqlobject.length == 0) {
-        return -1;
+        const newquery =
+          "SELECT gender,weight,height,neck_circumference,waist_size from user_data where uuid = (?)";
+        const sqlobject2 = await conn.query(newquery, [uuid]);
+        return sqlobject2;
       } else {
         return sqlobject;
       }

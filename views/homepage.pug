@@ -15,17 +15,18 @@ table.progress
     tbody 
       tr 
         th Body Fat%
-        td=  biodata.body_fat
+        td=  biodata.body_fat+'%'
       tr 
         td= "Height" 
-        td= data[0].height 
+        td= data[0].height+'CM' 
       tr 
         td= "Weight"
-        td= data[0].weight
+        td= data[0].weight +'KG'
 
 
 h1.journ Workout Journal
-button.adddeets#add(type="submit") Add New Entry
+form(action="/homepage/add", method="post") 
+  button.adddeets#add(type="button" onclick="window.location.href='/register/userdeets/journal'") Add New Entry
 table.userdat
     thead
         tr 
